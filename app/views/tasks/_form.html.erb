@@ -1,15 +1,15 @@
 <%= form_for(task) do |f| %>
 
+
+<!--エラーメッセージ-->
+
 <% if task.errors.any? %>
   <div id="error_explanation">
     <ul>
       
-<% task.errors.full_tasks.each do |task| %>
+<% task.errors.full_messages.each do |task| %>
 
-<li>
-  <%= task %>
-</li>
-
+<li><%= task %></li>
 <% end %>
 
     </ul>
@@ -17,8 +17,15 @@
   
 <% end %>
 
-<%= f.label :content, 'メッセージ' %>
+<!--エラーメッセージここまで-->
+
+
+<%= f.label :status, 'ステータス' %>
+<%= f.text_field :status %>
+
+<%= f.label :content, 'タスク' %>
 <%= f.text_field :content %>
+
 <%= f.submit '投稿' %>
 
 <% end %>
